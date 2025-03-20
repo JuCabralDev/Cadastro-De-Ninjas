@@ -1,6 +1,9 @@
-package dev.java10x.CadastroDeNinjas;
+package dev.java10x.CadastroDeNinjas.Ninjas.Controller.Serverce;
 
+import dev.java10x.CadastroDeNinjas.Missoes.missoesNinjasModel;
 import jakarta.persistence.*;
+
+import java.util.List;
 
 // Entity ele transforma um classe em uma entidade do BD (banco de dados)
 // JPA = Java Persistence API
@@ -14,6 +17,11 @@ public class NinjaModel {
     private String nome;
     private String email;
     private int idade;
+
+    // @ManyToOne - um ninja tem uma unica missao!
+    @ManyToOne
+    @JoinColumn(name = "missoes_id") // Foreing key ou chave estrangeira
+    private missoesNinjasModel missoes;
 
     public NinjaModel() {
     }
